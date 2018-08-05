@@ -2,7 +2,9 @@ var express = require('express');
 const axios = require('axios');
 const querystring = require('querystring');
 var app = express();
-//AQCQuPqcWt3Hbe1WNo8rocuAJzsUmzR5cO7P1TghlQiMGJheNg1BEod8X1Va46_0Ppf8MER5xmLm0x7jECHzfnrnBMqZM8P1rr7CUwiVmg3320If41SZnV-oC6XAPpSdGCI
+
+let AUTH_TOKEN = process.env.AUTH_TOKEN;
+
 let refreshToken;
 app.get('/refresh', function (req, res) {
     if(req.query.refresh_token){
@@ -20,7 +22,7 @@ app.get('/refresh', function (req, res) {
  
     var config = {
         headers: {
-          'Authorization': 'Basic NjFiMjNjNGQwYWQ1NDFiYWE3MmYxZjRhYmVmNjhlNzE6MDBjYmEyZjg3MjUwNDU1OGJiNTkwZTViYjZhNGNmZTc=',
+          'Authorization': 'Basic ' + AUTH_TOKEN ,
           'Content-Type': 'application/x-www-form-urlencoded',
         }
     };
