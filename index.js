@@ -22,7 +22,7 @@ app.get('/refresh', function (req, res) {
  
     var config = {
         headers: {
-          'Authorization': 'Basic ' + AUTH_TOKEN ,
+          'Authorization': 'Basic ' + AUTH_TOKEN,
           'Content-Type': 'application/x-www-form-urlencoded',
         }
     };
@@ -45,8 +45,9 @@ app.get('/refresh', function (req, res) {
             res.send(response.data)
         })
         .catch((error) => {
+            console.log(error);
             res.sendStatus(500);
         });
 });
  
-app.listen(3002);
+app.listen(process.env.PORT || 5000);
